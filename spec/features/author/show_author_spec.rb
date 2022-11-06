@@ -12,6 +12,12 @@ describe "Show author page", type: :feature do
     expect(page).to have_link(href: authors_path)
   end
 
+  it "should have a link to edit the shown author" do
+    # this test/feature was not required by the exercise but it was included in https://guides.rubyonrails.org/v6.0/getting_started.html#updating-articles
+    visit author_path(@alan)
+    expect(page).to have_link(href: edit_author_path(@alan))
+  end
+
   it "should show authors details page without errors" do
     visit author_path(@alan)
 
