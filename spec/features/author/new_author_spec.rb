@@ -34,4 +34,14 @@ describe "New author page", type: :feature do
 
     expect(Author.count).not_to eq(before_count)
   end
+
+  it "should show error when new user cannot be validated" do
+    visit new_author_path
+
+    page.fill_in "author[first_name]", with: "Alan"
+
+    find('input[type="submit"]').click
+
+    expect(page).to have_content("error")
+  end
 end
