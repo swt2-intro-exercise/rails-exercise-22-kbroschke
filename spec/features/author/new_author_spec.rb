@@ -32,7 +32,7 @@ describe "New author page", type: :feature do
 
     find('input[type="submit"]').click
 
-    expect(Author.count).not_to eq(before_count)
+    expect(Author.count).to eq(before_count + 1)
   end
 
   it "should show error when new user cannot be validated" do
