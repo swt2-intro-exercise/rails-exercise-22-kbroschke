@@ -6,4 +6,10 @@ describe "Index page", :type => :feature do
     visit root_path
     expect(page).to have_text("Paper Management System")
   end
+
+  it "should link to author list" do
+    # this test/feature was not required by the exercise but it was included in https://guides.rubyonrails.org/v6.0/getting_started.html#adding-links
+    visit root_path
+    expect(page).to have_link(href: authors_path)
+  end
 end
