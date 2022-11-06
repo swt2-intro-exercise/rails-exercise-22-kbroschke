@@ -9,6 +9,7 @@ describe "Show author page", type: :feature do
   it "should show authors details page without errors" do
     visit author_path(@alan)
 
-    expect(page).to have_text("")
+    expect(page).to have_text("Name: Alan Turing")
+    expect(page).to have_text("http://wikipedia.de/Alan_Turing")
   end
 end
