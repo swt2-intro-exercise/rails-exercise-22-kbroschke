@@ -17,4 +17,15 @@ describe "Edit author page", type: :feature do
 
     expect(page).to have_text("Edit Author")
   end
+
+  it "should save changes" do
+    visit edit_author_path(@alan)
+
+    test_name = "Elon"
+    page.fill_in "author[first_name]", with: test_name
+    find('input[type="submit"]').click
+
+    @alan.reload
+    expect(@alan.first_name).to eq test_name
+  end
 end
