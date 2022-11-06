@@ -32,4 +32,22 @@ describe "Index author page", type: :feature do
     expect(find_all("tr")).to include(
       have_link(href: edit_author_path(@author)))
   end
+
+  it "should have link to delete an author" do
+    visit authors_path
+
+    expect(find_all("tr")).to include(
+      have_link("Delete", href: author_path(@author)))
+  end
+
+  it "should delete an author in the database when clicking 'delete'" do
+    @author_to_delete = create(:author)
+    before_count = Author.count
+
+    visit authors_path
+
+    find_link("Delete", href: author_path(@author_to_delete)).click
+
+    expect(Author.count).to eq(before_count - 1)
+  end
 end
