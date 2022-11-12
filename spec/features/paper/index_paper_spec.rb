@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Index author page", type: :feature do
+describe "Index paper page", type: :feature do
 
   before(:all) do
     @paper = create(:paper)
