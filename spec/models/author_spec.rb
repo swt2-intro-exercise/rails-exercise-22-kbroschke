@@ -23,4 +23,9 @@ RSpec.describe Author, type: :model do
     @alan2 = build(:author, last_name: "")
     expect(@alan2).not_to be_valid
   end
+
+  it "should have a empty list of papers" do
+    # this test was not required by the exercise but I want to test the n:m relation in both directions
+    expect(@turing.papers).to eq([])
+  end
 end
