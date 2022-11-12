@@ -12,4 +12,10 @@ describe "Index page", :type => :feature do
     visit root_path
     expect(page).to have_link(href: authors_path)
   end
+
+  it "should link to paper list" do
+    # this test/feature was not required by the exercise but I want to have a link to click on
+    visit root_path
+    expect(page).to have_link(href: papers_path)
+  end
 end
