@@ -14,4 +14,12 @@
     <%= paper.year %>
   </p>
 
+  <p>
+    <strong>Authors:</strong>
+    <% paper.authors.each do |author| %>
+    <p>
+    <%= author.name %>
+    </p>
+    <%end %>
+  </p>
 </div>
