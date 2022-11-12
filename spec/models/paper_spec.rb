@@ -31,4 +31,10 @@ RSpec.describe Paper, type: :model do
 
     expect(@year_string_paper).not_to be_valid
   end
+
+  it "should have a empty list of authors" do
+    @authorless_paper = create(:authorless_paper)
+
+    expect(@authorless_paper.authors).to eq([])
+  end
 end
