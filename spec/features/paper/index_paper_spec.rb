@@ -17,4 +17,12 @@ describe "Index paper page", type: :feature do
 
     expect(page).to have_css("a[data-turbo-method='delete'][href='#{paper_path(@paper)}']")
   end
+
+  it "should be able to be filtered by year parameter" do
+    @new_paper = create(:new_paper)
+
+    visit("#{papers_path}?year=1950")
+
+    expect(page).not_to have_text(@new_paper.title)
+  end
 end
